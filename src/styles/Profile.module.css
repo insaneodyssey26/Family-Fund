@@ -1,0 +1,111 @@
+.profile {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.profileHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.avatarText {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.profileHeader h1 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.location {
+  color: #6b7280;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section h2 {
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.bookmarks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.bookmarkCard {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.bookmarkCard:hover {
+  transform: translateY(-2px);
+}
+
+.bookmarkCard h3 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.category {
+  color: #2563eb;
+  background-color: #eff6ff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.settings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.settingItem {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.settingItem h3 {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.settingItem p {
+  color: #1f2937;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    padding: 1rem;
+  }
+
+  .bookmarks,
+  .settings {
+    grid-template-columns: 1fr;
+  }
+} 

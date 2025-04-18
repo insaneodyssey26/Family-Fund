@@ -1,0 +1,40 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+.logo:hover .logoIcon {
+  color: var(--primary-light);
+  transform: rotate(5deg);
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: var(--transition);
+}
+
+.logo:hover .logoText {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+} 

@@ -1,0 +1,114 @@
+.layout {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--background);
+  overflow: hidden;
+}
+
+.backgroundAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    var(--background) 0%,
+    var(--surface-alt) 20%,
+    var(--surface-alt) 80%,
+    var(--background) 100%
+  );
+  z-index: 0;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  min-height: calc(100vh - 64px);
+  margin-top: 64px;
+}
+
+.decorativeSidebar {
+  padding: 2rem;
+  background: var(--gradient-surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+  border: 1px solid var(--border-light);
+  transition: var(--transition);
+}
+
+.decorativeSidebar:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.sidebarContent {
+  color: var(--text-secondary);
+}
+
+.sidebarContent h3 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.sidebarContent p {
+  margin-bottom: 1rem;
+  font-style: italic;
+  transition: var(--transition);
+}
+
+.sidebarContent p:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.mainContent {
+  padding: 2rem;
+  background: var(--gradient-surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  transition: var(--transition);
+}
+
+.mainContent:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 1024px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+
+  .decorativeSidebar {
+    display: none;
+  }
+
+  .mainContent {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    padding: 0 1rem;
+  }
+
+  .mainContent {
+    padding: 1rem;
+  }
+} 

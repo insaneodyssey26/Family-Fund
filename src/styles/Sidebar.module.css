@@ -1,0 +1,54 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #4b5563;
+  transition: transform 0.3s ease;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  gap: 1.5rem;
+}
+
+.navLink {
+  font-size: 1.2rem;
+  color: #4b5563;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  background-color: #f3f4f6;
+  color: #2563eb;
+  transform: translateX(5px);
+} 

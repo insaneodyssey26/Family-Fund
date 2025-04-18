@@ -1,0 +1,65 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  z-index: 1002;
+  animation: slideDown 0.5s ease-out;
+  pointer-events: none;
+}
+
+.content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-out;
+  pointer-events: auto;
+}
+
+h2 {
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+.closeButton {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.closeButton:hover {
+  background-color: #1d4ed8;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} 
