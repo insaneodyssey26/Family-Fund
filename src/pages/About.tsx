@@ -25,27 +25,6 @@ const About: React.FC = () => {
           </p>
         </section>
 
-        <section className={`${styles.statsSection} ${transition.section}`}>
-          <div className={styles.statsGrid}>
-            <div className={styles.statCard}>
-              <span className={styles.statNumber}>10K+</span>
-              <p className={styles.statLabel}>Families Helped</p>
-            </div>
-            <div className={styles.statCard}>
-              <span className={styles.statNumber}>95%</span>
-              <p className={styles.statLabel}>Success Rate</p>
-            </div>
-            <div className={styles.statCard}>
-              <span className={styles.statNumber}>24/7</span>
-              <p className={styles.statLabel}>Support</p>
-            </div>
-            <div className={styles.statCard}>
-              <span className={styles.statNumber}>50+</span>
-              <p className={styles.statLabel}>Expert Advisors</p>
-            </div>
-          </div>
-        </section>
-
         <section className={`${styles.section} ${styles.valuesSection} ${transition.section}`}>
           <h2>Our Values</h2>
           <div className={styles.valuesGrid}>

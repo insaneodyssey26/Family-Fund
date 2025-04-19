@@ -141,7 +141,7 @@
 /* Values Section */
 .valuesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
@@ -257,6 +257,12 @@
     gap: 1rem;
   }
 
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
   .valuesGrid {
     grid-template-columns: 1fr;
   }
