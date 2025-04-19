@@ -63,10 +63,7 @@ src/
 
 ## Contact
 
-For any queries, please reach out to us:
-- Email: support@familyfund.com
+For anything:
+- Email: hydrapikachu29@gmail.com
 - Location: Kolkata, West Bengal, India
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
