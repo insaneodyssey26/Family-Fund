@@ -26,7 +26,7 @@ const resourceDetails = {
         instructorRole: 'CFP',
         prerequisites: 'Basic understanding of personal finance',
         materials: 'Participants will receive a comprehensive workbook and access to online resources',
-        imageUrl: 'https://placehold.co/1200x400/6C5CE7/FFFFFF?text=Financial+Planning',
+        imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     },
     'tax-planning-guide': {
         title: 'Tax Planning Guide',
@@ -49,7 +49,7 @@ const resourceDetails = {
         instructorRole: 'CPA',
         prerequisites: 'Basic understanding of taxes',
         materials: 'Tax planning worksheets and digital resources',
-        imageUrl: 'https://placehold.co/1200x400/6C5CE7/FFFFFF?text=Tax+Planning',
+        imageUrl: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     },
     'investment-strategies': {
         title: 'Family Investment Strategies',
@@ -72,7 +72,7 @@ const resourceDetails = {
         instructorRole: 'Investment Specialist',
         prerequisites: 'Basic understanding of investments',
         materials: 'Investment guide, portfolio templates, and calculators',
-        imageUrl: 'https://placehold.co/1200x400/6C5CE7/FFFFFF?text=Investments',
+        imageUrl: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     },
     'college-savings-guide': {
         title: 'College Savings Guide',
@@ -94,7 +94,7 @@ const resourceDetails = {
         instructorRole: 'Financial Advisor',
         prerequisites: 'None',
         materials: 'Digital guidebook, calculators, and templates',
-        imageUrl: 'https://placehold.co/1200x400/00b894/FFFFFF?text=College+Savings',
+        imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     },
     'early-learning': {
         title: 'Early Childhood Education',
@@ -117,7 +117,7 @@ const resourceDetails = {
         instructorRole: 'Early Childhood Expert',
         prerequisites: 'None',
         materials: 'Activity guides, development charts, and resource lists',
-        imageUrl: 'https://placehold.co/1200x400/00b894/FFFFFF?text=Early+Learning',
+        imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     },
     'homeschool-resources': {
         title: 'Homeschool Resources',
@@ -140,7 +140,7 @@ const resourceDetails = {
         instructorRole: 'Education Specialist',
         prerequisites: 'None',
         materials: 'Curriculum guides, lesson plans, and assessment tools',
-        imageUrl: 'https://placehold.co/1200x400/00b894/FFFFFF?text=Homeschool',
+        imageUrl: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     },
     'healthcare-options-seminar': {
         title: 'Healthcare Options Seminar',
@@ -162,7 +162,7 @@ const resourceDetails = {
         instructorRole: 'Healthcare Consultant',
         prerequisites: 'None',
         materials: 'Healthcare planning workbook and resource directory',
-        imageUrl: 'https://placehold.co/1200x400/fd79a8/FFFFFF?text=Healthcare',
+        imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     },
     'family-nutrition': {
         title: 'Family Nutrition Guide',
@@ -185,7 +185,7 @@ const resourceDetails = {
         instructorRole: 'Nutritionist',
         prerequisites: 'None',
         materials: 'Meal planning guides, recipes, and nutrition charts',
-        imageUrl: 'https://placehold.co/1200x400/fd79a8/FFFFFF?text=Nutrition',
+        imageUrl: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     },
     'mental-health': {
         title: 'Family Mental Health Resources',
@@ -208,7 +208,7 @@ const resourceDetails = {
         instructorRole: 'Family Therapist',
         prerequisites: 'None',
         materials: 'Mental health guides, activity worksheets, and resource directory',
-        imageUrl: 'https://placehold.co/1200x400/fd79a8/FFFFFF?text=Mental+Health',
+        imageUrl: 'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400&q=80',
     }
 };
 
@@ -275,7 +275,7 @@ const ResourceDetail: React.FC = () => {
                     <span className={styles.category}>{resource.category}</span>
                     <h1>{resource.title}</h1>
                     <div className={styles.metaInfo}>
-                        <span className={styles.location}>�� {resource.location}</span>
+                        <span className={styles.location}>{resource.location}</span>
                         <span className={styles.date}>📅 {resource.date}</span>
                         <span className={styles.duration}>⏱️ {resource.duration}</span>
                     </div>
