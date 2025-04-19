@@ -53,16 +53,6 @@ const About: React.FC = () => {
         </section>
 
         <section className={`${styles.section} ${transition.section}`}>
-          <h2>Our Story</h2>
-          <p>
-            FamilyFund was founded in 2024 by a team of financial experts and family-oriented
-            developers who saw a need for better family financial management tools. We understand
-            that managing family finances can be challenging, and we're here to make it simpler
-            and more effective.
-          </p>
-        </section>
-
-        <section className={`${styles.section} ${transition.section}`}>
           <h2>Join Our Community</h2>
           <p>
             Become part of a growing community of families who are taking control of their

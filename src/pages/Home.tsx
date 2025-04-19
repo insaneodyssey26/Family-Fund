@@ -23,20 +23,20 @@ const Home: React.FC = () => {
             Your trusted resource for family financial planning and support
           </p>
           <div className={styles.heroActions}>
-            <button 
+            <button
               className={styles.ctaButton}
               onClick={() => navigate('/resources')}
             >
               Browse Resources
             </button>
             <div className={styles.quickLinks}>
-              <button 
+              <button
                 className={styles.quickLink}
                 onClick={() => scrollToSection('features')}
               >
                 View Features
               </button>
-              <button 
+              <button
                 className={styles.quickLink}
                 onClick={() => scrollToSection('testimonials')}
               >
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
       <section className={styles.ctaSection}>
         <h2>Ready to Get Started?</h2>
         <p>Join thousands of families who trust FamilyFund for their financial planning needs.</p>
-        <button 
+        <button
           className={styles.ctaButton}
           onClick={() => navigate('/signup')}
         >
