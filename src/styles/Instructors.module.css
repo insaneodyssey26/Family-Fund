@@ -4,10 +4,16 @@
     padding: 2rem;
 }
 
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
 .title {
     font-size: 2.5rem;
-    color: #1a1a1a;
+    color: var(--primary-color, #6C5CE7);
     margin-bottom: 1rem;
+    font-weight: 700;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.3s ease forwards;
@@ -16,82 +22,117 @@
 .subtitle {
     font-size: 1.2rem;
     color: #666;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.3s ease 0.1s forwards;
 }
 
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease 0.2s forwards;
+}
+
+.searchBar {
+    flex: 1;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--primary-color, #6C5CE7);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.expertiseFilter {
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    min-width: 200px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.expertiseFilter:focus {
+    outline: none;
+    border-color: var(--primary-color, #6C5CE7);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
 .instructorsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
     margin-top: 1rem;
 }
 
 .instructorCard {
     background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.3s ease forwards;
-}
-
-.instructorCard:nth-child(1) {
-    animation-delay: 0.15s;
-}
-
-.instructorCard:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.instructorCard:nth-child(3) {
-    animation-delay: 0.25s;
-}
-
-.instructorCard:nth-child(4) {
-    animation-delay: 0.3s;
-}
-
-.instructorCard:nth-child(5) {
-    animation-delay: 0.35s;
-}
-
-.instructorCard:nth-child(6) {
-    animation-delay: 0.4s;
-}
-
-.instructorCard:nth-child(7) {
-    animation-delay: 0.45s;
-}
-
-.instructorCard:nth-child(8) {
-    animation-delay: 0.5s;
-}
-
-.instructorCard:nth-child(9) {
-    animation-delay: 0.55s;
-}
-
-.instructorCard:nth-child(10) {
-    animation-delay: 0.6s;
-}
-
-.instructorCard:nth-child(11) {
-    animation-delay: 0.65s;
-}
-
-.instructorCard:nth-child(12) {
-    animation-delay: 0.7s;
+    position: relative;
 }
 
 .instructorCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.instructorHeader {
+    height: 140px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+.initialsCircle {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.instructorCard:hover .initialsCircle {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.instructorInfo {
+    padding: 1.5rem;
+    background: white;
+    position: relative;
 }
 
 .instructorName {
@@ -99,12 +140,14 @@
     font-weight: 600;
     color: #1a1a1a;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .instructorRole {
     font-size: 1rem;
     color: #666;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .instructorBio {
@@ -118,15 +161,21 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: center;
 }
 
 .expertiseTag {
-    background: #f0f0f0;
-    color: #666;
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--primary-color, #6C5CE7);
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.instructorCard:hover .expertiseTag {
+    background: rgba(108, 92, 231, 0.15);
 }
 
 @keyframes fadeInUp {
@@ -138,6 +187,20 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
 
@@ -154,8 +217,27 @@
         font-size: 1.1rem;
     }
 
+    .filters {
+        flex-direction: column;
+    }
+
+    .expertiseFilter {
+        width: 100%;
+        min-width: unset;
+    }
+
     .instructorsGrid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1rem;
+    }
+
+    .instructorHeader {
+        height: 120px;
+    }
+
+    .initialsCircle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.5rem;
     }
 }
