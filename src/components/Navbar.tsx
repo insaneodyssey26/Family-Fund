@@ -39,6 +39,10 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
             <span className={styles.navLinkText}>Resources</span>
             {isActive('/resources') && <div className={styles.activeIndicator} />}
           </Link>
+          <Link to="/instructors" className={`${styles.navLink} ${isActive('/instructors') ? styles.active : ''}`}>
+            <span className={styles.navLinkText}>Instructors</span>
+            {isActive('/instructors') && <div className={styles.activeIndicator} />}
+          </Link>
           <Link to="/about" className={`${styles.navLink} ${isActive('/about') ? styles.active : ''}`}>
             <span className={styles.navLinkText}>About</span>
             {isActive('/about') && <div className={styles.activeIndicator} />}

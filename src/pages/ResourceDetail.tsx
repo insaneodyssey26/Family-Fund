@@ -21,7 +21,9 @@ const resourceDetails = {
       - Insurance needs assessment
       - Estate planning basics
     `,
-        instructor: 'Sarah Johnson, CFP',
+        instructor: 'Sarah Johnson',
+        instructorId: 1,
+        instructorRole: 'CFP',
         prerequisites: 'Basic understanding of personal finance',
         materials: 'Participants will receive a comprehensive workbook and access to online resources',
         registrationLink: '#',
@@ -42,7 +44,9 @@ const resourceDetails = {
       - Investment strategies for education savings
       - Case studies and success stories
     `,
-        instructor: 'Michael Chen, Financial Advisor',
+        instructor: 'Michael Chen',
+        instructorId: 2,
+        instructorRole: 'Financial Advisor',
         prerequisites: 'None',
         materials: 'Digital guidebook, calculators, and templates',
         registrationLink: '#',
@@ -63,7 +67,9 @@ const resourceDetails = {
       - Special needs healthcare planning
       - Emergency fund considerations
     `,
-        instructor: 'Dr. Emily Rodriguez, Healthcare Consultant',
+        instructor: 'Dr. Emily Rodriguez',
+        instructorId: 3,
+        instructorRole: 'Healthcare Consultant',
         prerequisites: 'None',
         materials: 'Healthcare planning workbook and resource directory',
         registrationLink: '#',
@@ -85,7 +91,9 @@ const resourceDetails = {
       - Closing process overview
       - First-time buyer programs
     `,
-        instructor: 'Robert Martinez, Real Estate Expert',
+        instructor: 'Robert Martinez',
+        instructorId: 4,
+        instructorRole: 'Real Estate Expert',
         prerequisites: 'None',
         materials: 'Digital home buying guide, mortgage calculators, and checklists',
         registrationLink: '#',
@@ -107,7 +115,9 @@ const resourceDetails = {
       - Tax-efficient estate planning
       - Record keeping best practices
     `,
-        instructor: 'David Wilson, CPA',
+        instructor: 'David Wilson',
+        instructorId: 5,
+        instructorRole: 'CPA',
         prerequisites: 'Basic understanding of taxes',
         materials: 'Tax planning worksheets and digital resources',
         registrationLink: '#',
@@ -129,7 +139,9 @@ const resourceDetails = {
       - Government assistance programs
       - Work-life balance strategies
     `,
-        instructor: 'Lisa Thompson, Early Childhood Expert',
+        instructor: 'Lisa Thompson',
+        instructorId: 6,
+        instructorRole: 'Early Childhood Expert',
         prerequisites: 'None',
         materials: 'Childcare evaluation toolkit and local resource directory',
         registrationLink: '#',
@@ -169,6 +181,13 @@ const ResourceDetail: React.FC = () => {
         // Store the current URL to redirect back after login
         localStorage.setItem('redirectAfterLogin', `/resources/${resourceId}`);
         navigate('/login');
+    };
+
+    const handleInstructorClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (resource.instructorId) {
+            navigate(`/instructors/${resource.instructorId}`);
+        }
     };
 
     return (
@@ -221,7 +240,27 @@ const ResourceDetail: React.FC = () => {
                         </div>
                         <div className={styles.detailItem}>
                             <h3>Instructor</h3>
-                            <p>{resource.instructor}</p>
+                            <div
+                                className={styles.instructorInfo}
+                                onClick={handleInstructorClick}
+                                role="button"
+                                tabIndex={0}
+                                onKeyPress={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        handleInstructorClick(e as any);
+                                    }
+                                }}
+                            >
+                                <div className={styles.instructorIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#666" />
+                                    </svg>
+                                </div>
+                                <div className={styles.instructorDetails}>
+                                    <span className={styles.instructorName}>{resource.instructor}</span>
+                                    <span className={styles.instructorRole}>{resource.instructorRole}</span>
+                                </div>
+                            </div>
                         </div>
                         <div className={styles.detailItem}>
                             <h3>Prerequisites</h3>
