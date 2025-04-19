@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import FeaturedResources from '../components/FeaturedResources';
+import Categories from '../components/FeaturedResources';
 import styles from '../styles/Home.module.css';
 
 const Home: React.FC = () => {
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Featured Resources Section */}
-      <FeaturedResources />
+      <Categories />
 
       {/* Key Features Section */}
       <section id="features" className={styles.features}>

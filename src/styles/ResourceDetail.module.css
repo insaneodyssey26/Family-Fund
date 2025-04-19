@@ -5,112 +5,128 @@
 }
 
 .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    padding: 4rem 0;
-    text-align: center;
-    border-radius: 1rem;
-    margin-bottom: 2rem;
     position: relative;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.heroImage {
+    width: 100%;
+    height: 400px;
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-    z-index: 1;
+.heroImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.heroImage:hover img {
+    transform: scale(1.05);
 }
 
 .heroContent {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
 }
 
-.hero h1 {
+.heroContent h1 {
+    margin: 0.5rem 0;
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.category {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color, #6C5CE7);
     color: white;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .metaInfo {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
 }
 
 .metaInfo span {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
-    margin-top: 2rem;
 }
 
 .mainContent {
     background: white;
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.description {
+    margin-bottom: 2rem;
 }
 
 .description h2 {
-    font-size: 1.8rem;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    color: var(--primary-color, #6C5CE7);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .description p {
-    font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
+    color: #666;
+    margin-bottom: 1rem;
 }
 
 .detailedDescription {
-    background: var(--background);
+    background: #f8f9fa;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .detailedDescription p {
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0;
     padding-left: 1rem;
     position: relative;
 }
 
-.detailedDescription p::before {
-    content: '•';
+.detailedDescription p:before {
+    content: "•";
     position: absolute;
     left: 0;
-    color: var(--primary);
+    color: var(--primary-color, #6C5CE7);
 }
 
 .details {
     margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
 }
 
 .details h2 {
-    font-size: 1.8rem;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    color: var(--primary-color, #6C5CE7);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .detailItem {
@@ -118,168 +134,29 @@
 }
 
 .detailItem h3 {
-    font-size: 1.1rem;
-    color: var(--text-primary);
+    color: #333;
     margin-bottom: 0.5rem;
+    font-size: 1.1rem;
 }
 
 .detailItem p {
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-.sidebar {
-    position: sticky;
-    top: 2rem;
-    height: fit-content;
-}
-
-.registrationCard {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-md);
-    text-align: center;
-}
-
-.registrationCard h3 {
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
-
-.registrationCard p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
-
-.registerButton {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    width: 100%;
-}
-
-.registerButton:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-
-    .content {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        position: static;
-        margin-top: 2rem;
-    }
-
-    .hero {
-        padding: 3rem 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-}
-
-.loginPromptOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.loginPrompt {
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-}
-
-.loginPrompt h3 {
-    font-size: 1.5rem;
-    color: #1f2937;
-    margin-bottom: 1rem;
-}
-
-.loginPrompt p {
-    color: #6b7280;
-    margin-bottom: 1.5rem;
-}
-
-.loginPromptButtons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.loginButton {
-    background: #6c5ce7;
-    color: white;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.15s;
-}
-
-.loginButton:hover {
-    background: #5a4bd1;
-}
-
-.cancelButton {
-    background: #e5e7eb;
-    color: #374151;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.15s;
-}
-
-.cancelButton:hover {
-    background: #d1d5db;
+    color: #666;
+    line-height: 1.6;
 }
 
 .instructorInfo {
     display: flex;
     align-items: center;
-    padding: 12px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
     cursor: pointer;
-    transition: all 0.15s ease;
-    margin-top: 8px;
+    transition: background-color 0.3s ease;
 }
 
 .instructorInfo:hover {
-    background-color: #f0f0f0;
+    background: #f0f0f0;
 }
 
 .instructorIcon {
@@ -288,9 +165,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e9e9e9;
+    background: white;
     border-radius: 50%;
-    margin-right: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .instructorDetails {
@@ -301,10 +178,158 @@
 .instructorName {
     font-weight: 600;
     color: #333;
-    font-size: 0.9rem;
 }
 
 .instructorRole {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #666;
+}
+
+.sidebar {
+    position: sticky;
+    top: 2rem;
+}
+
+.registrationCard {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.registrationCard h3 {
+    color: var(--primary-color, #6C5CE7);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.registrationCard p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.registerButton {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color, #6C5CE7);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.registerButton:hover {
+    background: var(--primary-color-dark, #5f4bd8);
+    transform: translateY(-2px);
+}
+
+.loginPromptOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loginPrompt {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.loginPrompt h3 {
+    color: var(--primary-color, #6C5CE7);
+    margin-bottom: 1rem;
+}
+
+.loginPrompt p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.loginPromptButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.loginButton {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color, #6C5CE7);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.loginButton:hover {
+    background: var(--primary-color-dark, #5f4bd8);
+}
+
+.cancelButton {
+    padding: 0.75rem 1.5rem;
+    background: #f0f0f0;
+    color: #666;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancelButton:hover {
+    background: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .heroContent h1 {
+        font-size: 2rem;
+    }
+
+    .metaInfo {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .sidebar {
+        position: static;
+    }
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
 }

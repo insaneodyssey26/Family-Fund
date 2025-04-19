@@ -15,6 +15,7 @@ import ResourceDetail from './pages/ResourceDetail';
 import RegisterResource from './pages/RegisterResource';
 import Instructors from './pages/Instructors';
 import InstructorDetail from './pages/InstructorDetail';
+import CategoryResources from './pages/CategoryResources';
 import styles from './styles/App.module.css';
 
 const App: React.FC = () => {
@@ -40,6 +41,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/register" element={<Navigate to="/signup" replace />} />
+            <Route path="/category/:category" element={<CategoryResources />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
