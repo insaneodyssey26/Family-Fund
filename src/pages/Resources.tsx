@@ -30,7 +30,7 @@ const resources = [
     title: 'Home Buying Workshop',
     description: 'Expert advice on buying your first family home.',
     category: 'Housing',
-    location: 'Los Angeles, CA',
+    location: 'Online',
   },
   {
     id: 'tax-planning-guide',

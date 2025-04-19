@@ -12,6 +12,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ResourceDetail from './pages/ResourceDetail';
+import RegisterResource from './pages/RegisterResource';
 import styles from './styles/App.module.css';
 
 const App: React.FC = () => {
@@ -28,6 +29,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/resources/:resourceId" element={<ResourceDetail />} />
+            <Route path="/register-resource/:resourceId" element={<RegisterResource />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

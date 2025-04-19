@@ -9,7 +9,7 @@ const resourceDetails = {
         title: 'Financial Planning Workshop',
         category: 'Finance',
         location: 'New York, NY',
-        date: 'March 15, 2024',
+        date: 'July 8, 2025',
         duration: '2 hours',
         description: 'Learn essential financial planning strategies for your family\'s future.',
         detailedDescription: `
@@ -52,7 +52,7 @@ const resourceDetails = {
         title: 'Healthcare Options Seminar',
         category: 'Healthcare',
         location: 'Chicago, IL',
-        date: 'April 5, 2024',
+        date: 'July 15, 2025',
         duration: '3 hours',
         description: 'Understanding healthcare options and insurance for families.',
         detailedDescription: `
@@ -68,6 +68,72 @@ const resourceDetails = {
         materials: 'Healthcare planning workbook and resource directory',
         registrationLink: '#',
         imageUrl: '/images/healthcare.jpg'
+    },
+    'home-buying-workshop': {
+        title: 'Home Buying Workshop',
+        category: 'Housing',
+        location: 'Online',
+        date: 'Available Anytime',
+        duration: 'Self-paced',
+        description: 'Expert advice on buying your first family home.',
+        detailedDescription: `
+      This workshop covers essential topics for first-time home buyers:
+      - Understanding mortgage options
+      - Down payment strategies
+      - Home inspection essentials
+      - Negotiation techniques
+      - Closing process overview
+      - First-time buyer programs
+    `,
+        instructor: 'Robert Martinez, Real Estate Expert',
+        prerequisites: 'None',
+        materials: 'Digital home buying guide, mortgage calculators, and checklists',
+        registrationLink: '#',
+        imageUrl: '/images/housing.jpg'
+    },
+    'tax-planning-guide': {
+        title: 'Tax Planning Guide',
+        category: 'Finance',
+        location: 'Online',
+        date: 'Available Anytime',
+        duration: 'Self-paced',
+        description: 'Strategies for optimizing your family\'s tax situation.',
+        detailedDescription: `
+      Comprehensive tax planning topics include:
+      - Tax deductions for families
+      - Child tax credits
+      - Education tax benefits
+      - Investment tax strategies
+      - Tax-efficient estate planning
+      - Record keeping best practices
+    `,
+        instructor: 'David Wilson, CPA',
+        prerequisites: 'Basic understanding of taxes',
+        materials: 'Tax planning worksheets and digital resources',
+        registrationLink: '#',
+        imageUrl: '/images/tax.jpg'
+    },
+    'childcare-resources': {
+        title: 'Childcare Resources',
+        category: 'Family',
+        location: 'Boston, MA',
+        date: 'July 22, 2025',
+        duration: '2.5 hours',
+        description: 'Finding quality childcare options in your area.',
+        detailedDescription: `
+      This seminar covers important childcare topics:
+      - Types of childcare options
+      - Evaluating childcare providers
+      - Cost considerations and budgeting
+      - Safety and quality standards
+      - Government assistance programs
+      - Work-life balance strategies
+    `,
+        instructor: 'Lisa Thompson, Early Childhood Expert',
+        prerequisites: 'None',
+        materials: 'Childcare evaluation toolkit and local resource directory',
+        registrationLink: '#',
+        imageUrl: '/images/childcare.jpg'
     }
 };
 
@@ -75,6 +141,7 @@ const ResourceDetail: React.FC = () => {
     const { resourceId } = useParams<{ resourceId: string }>();
     const navigate = useNavigate();
     const [resource, setResource] = useState<any>(null);
+    const [showLoginPrompt, setShowLoginPrompt] = useState(false);
 
     useEffect(() => {
         if (resourceId && resourceDetails[resourceId as keyof typeof resourceDetails]) {
@@ -86,8 +153,43 @@ const ResourceDetail: React.FC = () => {
 
     if (!resource) return null;
 
+    const handleRegisterClick = () => {
+        // Check if user is logged in - replace with your actual auth check
+        const isLoggedIn = localStorage.getItem('userToken');
+
+        if (!isLoggedIn) {
+            setShowLoginPrompt(true);
+            return;
+        }
+
+        navigate(`/register-resource/${resourceId}`);
+    };
+
+    const handleLogin = () => {
+        // Store the current URL to redirect back after login
+        localStorage.setItem('redirectAfterLogin', `/resources/${resourceId}`);
+        navigate('/login');
+    };
+
     return (
         <div className={`${styles.container} ${transition.content}`}>
+            {showLoginPrompt && (
+                <div className={styles.loginPromptOverlay}>
+                    <div className={styles.loginPrompt}>
+                        <h3>Login Required</h3>
+                        <p>Please log in to register for this resource.</p>
+                        <div className={styles.loginPromptButtons}>
+                            <button className={styles.loginButton} onClick={handleLogin}>
+                                Log In
+                            </button>
+                            <button className={styles.cancelButton} onClick={() => setShowLoginPrompt(false)}>
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <div className={styles.hero}>
                 <div className={styles.heroContent}>
                     <h1>{resource.title}</h1>
@@ -138,7 +240,7 @@ const ResourceDetail: React.FC = () => {
                         <p>Secure your spot for this valuable resource</p>
                         <button
                             className={styles.registerButton}
-                            onClick={() => window.open(resource.registrationLink, '_blank')}
+                            onClick={handleRegisterClick}
                         >
                             Register
                         </button>
