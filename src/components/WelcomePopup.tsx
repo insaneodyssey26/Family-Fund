@@ -17,7 +17,7 @@ const WelcomePopup: React.FC = () => {
   return (
     <div className={styles.popup}>
       <div className={styles.content}>
-        <h2>Welcome to Resource Hub!</h2>
+        <h2>Welcome to Family Fund!</h2>
         <p>Discover valuable resources for middle-class families.</p>
         <button className={styles.closeButton} onClick={() => setIsVisible(false)}>
           Got it!

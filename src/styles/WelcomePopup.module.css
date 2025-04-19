@@ -20,36 +20,94 @@
   max-width: 400px;
   animation: fadeIn 0.5s ease-out;
   pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.content:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.content:hover::before {
+  opacity: 0.1;
+}
+
+.content:hover h2 {
+  color: var(--primary);
+  transform: scale(1.05);
+}
+
+.content:hover p {
+  color: var(--text-primary);
 }
 
 h2 {
-  color: #2563eb;
+  color: var(--primary);
   margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 p {
-  color: #4b5563;
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .closeButton {
-  background-color: #2563eb;
+  background-color: var(--primary);
   color: white;
   border: none;
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.closeButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
 .closeButton:hover {
-  background-color: #1d4ed8;
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+.closeButton:hover::before {
+  transform: translateX(100%);
 }
 
 @keyframes slideDown {
   from {
     transform: translateY(-100%);
   }
+
   to {
     transform: translateY(0);
   }
@@ -59,7 +117,8 @@ p {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
-} 
+}

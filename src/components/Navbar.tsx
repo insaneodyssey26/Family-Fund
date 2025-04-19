@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css';
 
-const Navbar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
+interface NavbarProps {
+  onMenuClick: () => void;
+}
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
+  const navigate = useNavigate();
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContent}>
-        <div className={styles.logo}>
-          <div className={styles.logoIcon}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+        <Link to="/" className={styles.logo}>
+          <div className={styles.logoContainer}>
+            <div className={styles.logoIcon}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <span className={styles.logoText}>FamilyFund</span>
           </div>
-          <span className={styles.logoText}>FamilyFund</span>
-        </div>
+        </Link>
 
-        <div className={`${styles.navLinks} ${isMenuOpen ? styles.active : ''}`}>
+        <div className={styles.navLinks}>
           <Link to="/" className={styles.navLink}>Home</Link>
           <Link to="/resources" className={styles.navLink}>Resources</Link>
           <Link to="/about" className={styles.navLink}>About</Link>
@@ -32,13 +33,13 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className={styles.authButtons}>
-          <button 
+          <button
             className={styles.loginButton}
             onClick={() => navigate('/login')}
           >
             Log In
           </button>
-          <button 
+          <button
             className={styles.signupButton}
             onClick={() => navigate('/signup')}
           >
@@ -46,9 +47,9 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        <button 
-          className={`${styles.menuButton} ${isMenuOpen ? styles.active : ''}`}
-          onClick={toggleMenu}
+        <button
+          className={styles.menuButton}
+          onClick={onMenuClick}
           aria-label="Toggle menu"
         >
           <span></span>
