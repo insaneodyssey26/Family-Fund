@@ -1,54 +1,72 @@
-# React + TypeScript + Vite
+# FamilyFund - Family Financial Management Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FamilyFund is a modern web application designed to help families manage their finances effectively and collaboratively. Built with React, TypeScript, and Firebase, it provides a secure and user-friendly platform for financial planning and resource management.
 
-Currently, two official plugins are available:
+## Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Secure Authentication**: Email/password and Google sign-in options
+- **Resource Management**: Access and manage financial resources and educational materials
+- **Profile Management**: Personalized user profiles with customizable settings
+- **Interactive Dashboard**: Easy-to-use interface for managing financial activities
+- **Real-time Updates**: Instant updates using Firebase real-time database
+- **Responsive Design**: Seamless experience across all devices
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React.js with TypeScript
+- **Styling**: CSS Modules for component-based styling
+- **Backend**: Firebase (Authentication, Firestore, Storage)
+- **Routing**: React Router v6
+- **State Management**: React Context API
+- **Build Tool**: Vite
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/family-fund.git
+cd family-fund
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Set up environment variables:
+Create a `.env` file in the root directory and add your Firebase configuration:
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── contexts/       # React Context providers
+├── pages/         # Application pages/routes
+├── services/      # Firebase and API services
+├── styles/        # Global styles and CSS modules
+└── config/        # Configuration files
+```
+
+## Contact
+
+For any queries, please reach out to us:
+- Email: support@familyfund.com
+- Location: Kolkata, West Bengal, India
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
