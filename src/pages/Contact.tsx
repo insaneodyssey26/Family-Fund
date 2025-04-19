@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Contact.module.css';
 import transition from '../styles/PageTransition.module.css';
+import { contactService } from '../services/contactService';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,11 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
   useEffect(() => {
     // Scroll to top when page loads
@@ -23,10 +29,31 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      await contactService.sendMessage(formData);
+      setSubmitStatus({
+        type: 'success',
+        message: 'Your message has been sent successfully! We will get back to you soon.'
+      });
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Failed to send message. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -71,6 +98,11 @@ const Contact: React.FC = () => {
         </div>
 
         <div className={`${styles.contactForm} ${transition.section}`}>
+          {submitStatus.type && (
+            <div className={`${styles.statusMessage} ${styles[submitStatus.type]}`}>
+              {submitStatus.message}
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
               <label htmlFor="name">Full Name</label>
@@ -82,6 +114,7 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 placeholder="Enter your full name"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -95,6 +128,7 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 placeholder="Enter your email"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -108,6 +142,7 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 placeholder="What's this about?"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -120,11 +155,16 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 placeholder="How can we help you?"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
-            <button type="submit" className={styles.submitButton}>
-              Send Message
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
