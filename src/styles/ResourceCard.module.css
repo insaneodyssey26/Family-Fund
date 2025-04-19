@@ -4,22 +4,40 @@
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--primary-rgb), 0) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-lg);
   border-color: var(--primary);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .imageContainer {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  /* 16:9 aspect ratio */
   overflow: hidden;
 }
 
@@ -42,6 +60,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  position: relative;
 }
 
 .category {
@@ -54,6 +73,12 @@
   font-weight: 500;
   margin-bottom: 1rem;
   align-self: flex-start;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover .category {
+  transform: translateY(-2px);
+  background: var(--primary-dark);
 }
 
 .title {
@@ -61,6 +86,11 @@
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.card:hover .title {
+  color: var(--primary);
 }
 
 .description {
@@ -69,6 +99,11 @@
   line-height: 1.5;
   margin-bottom: 1rem;
   flex: 1;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .description {
+  transform: translateY(-2px);
 }
 
 .mapPlaceholder {
@@ -78,19 +113,51 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
+}
+
+.mapPlaceholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--primary-rgb), 0) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .mapPlaceholder::after {
+  opacity: 1;
 }
 
 .mapText {
   color: #6b7280;
   font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .mapText {
+  transform: scale(1.05);
 }
 
 .meta {
   display: flex;
   justify-content: space-between;
   font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .meta {
+  transform: translateY(-2px);
 }
 
 .location {
   color: #6b7280;
-} 
+  transition: color 0.3s ease;
+}
+
+.card:hover .location {
+  color: var(--primary);
+}

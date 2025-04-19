@@ -117,18 +117,65 @@
   font-weight: 500;
   padding: 0.5rem 1.25rem;
   border-radius: 1.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navLinkText {
+  position: relative;
+  z-index: 1;
 }
 
 .navLink:hover {
   color: var(--primary);
-  background: rgba(var(--primary-rgb), 0.1);
+  background: rgba(var(--primary-rgb), 0.08);
 }
 
 .navLink.active {
   color: var(--primary);
   background: rgba(var(--primary-rgb), 0.1);
+  font-weight: 600;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  animation: dotAppear 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes dotAppear {
+  from {
+    transform: translate(-50%, -4px) scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Add a page transition effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .authButtons {

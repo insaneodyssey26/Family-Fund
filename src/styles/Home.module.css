@@ -36,6 +36,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .heroTitle {
@@ -44,14 +45,16 @@
   margin-bottom: 1rem;
   line-height: 1.2;
   color: white;
+  animation: scaleIn 0.6s ease-out forwards;
 }
 
 .heroSubtitle {
   font-size: 1.125rem;
-  opacity: 0.9;
+  opacity: 0;
   max-width: 600px;
   margin: 0 auto 1.5rem;
   color: white;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .heroActions {
@@ -59,6 +62,8 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
 .quickLinks {
@@ -92,12 +97,16 @@
 .features {
   padding: 4rem 0;
   text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .features h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: var(--text-primary);
+  opacity: 0;
+  animation: scaleIn 0.6s ease-out 0.2s forwards;
 }
 
 .featuresGrid {
@@ -112,21 +121,90 @@
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: var(--shadow-md);
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--primary-rgb), 0) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.featureCard:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+.featureCard:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.featureCard:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.8s forwards;
 }
 
 .featureCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.featureCard:hover::before {
+  opacity: 1;
 }
 
 .featureIcon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featureCard:hover .featureIcon {
+  transform: scale(1.2) rotate(5deg);
 }
 
 .featureCard h3 {
   color: var(--primary);
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.featureCard h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.4s ease;
+}
+
+.featureCard:hover h3::after {
+  width: 100%;
+}
+
+.featureCard p {
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover p {
+  transform: translateX(5px);
+}
+
+.featureCard:active {
+  transform: translateY(-4px) scale(0.98);
+  transition: transform 0.2s ease;
 }
 
 /* How It Works Section */
@@ -155,6 +233,8 @@
 .step {
   position: relative;
   padding: 2rem;
+  opacity: 0;
+  animation: slideInFromLeft 0.6s ease-out forwards;
 }
 
 .stepNumber {
@@ -168,6 +248,12 @@
   justify-content: center;
   font-weight: bold;
   margin: 0 auto 1rem;
+  transition: transform 0.3s ease;
+}
+
+.step:hover .stepNumber {
+  transform: scale(1.1) rotate(360deg);
+  transition: transform 0.6s ease;
 }
 
 .step h3 {
@@ -179,12 +265,16 @@
 .testimonials {
   padding: 4rem 0;
   text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .testimonials h2 {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: var(--text-primary);
+  opacity: 0;
+  animation: scaleIn 0.6s ease-out 0.2s forwards;
 }
 
 .testimonialGrid {
@@ -200,40 +290,90 @@
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: var(--shadow-md);
-  text-align: left;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonialCard::before {
+  content: '"';
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 4rem;
+  color: var(--primary);
+  opacity: 0.1;
+  font-family: serif;
+  line-height: 1;
+}
+
+.testimonialCard:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+.testimonialCard:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.testimonialCard:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.8s forwards;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
 }
 
 .testimonialText {
   font-style: italic;
   margin-bottom: 1.5rem;
   color: var(--text-secondary);
+  text-align: left;
+  line-height: 1.6;
+  position: relative;
+  padding: 0 1rem;
 }
 
 .testimonialAuthor {
   display: flex;
   align-items: center;
   gap: 1rem;
+  justify-content: flex-start;
+  padding: 0 1rem;
 }
 
 .authorAvatar {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   background: var(--primary);
   color: white;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.testimonialCard:hover .authorAvatar {
+  transform: scale(1.1);
+}
+
+.authorInfo {
+  text-align: left;
 }
 
 .authorInfo h4 {
   margin: 0;
   color: var(--text-primary);
+  font-weight: 600;
 }
 
 .authorInfo p {
-  margin: 0;
+  margin: 0.25rem 0 0;
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
@@ -245,6 +385,8 @@
   background: var(--surface);
   border-radius: 1rem;
   margin: 2rem 0;
+  opacity: 0;
+  animation: scaleIn 0.8s ease-out forwards;
 }
 
 .ctaSection h2 {
@@ -269,13 +411,13 @@
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .ctaButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-lg);
   background: var(--primary);
   color: white;
 }
@@ -303,4 +445,41 @@
   .home {
     padding: 1rem;
   }
-} 
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

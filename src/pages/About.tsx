@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../styles/About.module.css';
+import transition from '../styles/PageTransition.module.css';
 
 const About: React.FC = () => {
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <div className={styles.hero}>
+    <div className={`${styles.container} ${transition.content}`}>
+      <div className={`${styles.hero} ${transition.section}`}>
         <h1>About FamilyFund</h1>
         <p className={styles.subtitle}>Empowering families to achieve financial freedom together</p>
       </div>
 
       <div className={styles.content}>
-        <section className={styles.section}>
+        <section className={`${styles.section} ${transition.section}`}>
           <h2>Our Mission</h2>
           <p>
             FamilyFund was created with a simple mission: to help families manage their finances
@@ -19,7 +25,7 @@ const About: React.FC = () => {
           </p>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${transition.section}`}>
           <h2>What We Offer</h2>
           <div className={styles.features}>
             <div className={styles.feature}>
@@ -46,7 +52,7 @@ const About: React.FC = () => {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${transition.section}`}>
           <h2>Our Story</h2>
           <p>
             FamilyFund was founded in 2024 by a team of financial experts and family-oriented
@@ -56,7 +62,7 @@ const About: React.FC = () => {
           </p>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${transition.section}`}>
           <h2>Join Our Community</h2>
           <p>
             Become part of a growing community of families who are taking control of their

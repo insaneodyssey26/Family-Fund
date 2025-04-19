@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css';
 
 interface NavbarProps {
@@ -8,6 +8,11 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -26,10 +31,22 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
         </Link>
 
         <div className={styles.navLinks}>
-          <Link to="/" className={styles.navLink}>Home</Link>
-          <Link to="/resources" className={styles.navLink}>Resources</Link>
-          <Link to="/about" className={styles.navLink}>About</Link>
-          <Link to="/contact" className={styles.navLink}>Contact</Link>
+          <Link to="/" className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}>
+            <span className={styles.navLinkText}>Home</span>
+            {isActive('/') && <div className={styles.activeIndicator} />}
+          </Link>
+          <Link to="/resources" className={`${styles.navLink} ${isActive('/resources') ? styles.active : ''}`}>
+            <span className={styles.navLinkText}>Resources</span>
+            {isActive('/resources') && <div className={styles.activeIndicator} />}
+          </Link>
+          <Link to="/about" className={`${styles.navLink} ${isActive('/about') ? styles.active : ''}`}>
+            <span className={styles.navLinkText}>About</span>
+            {isActive('/about') && <div className={styles.activeIndicator} />}
+          </Link>
+          <Link to="/contact" className={`${styles.navLink} ${isActive('/contact') ? styles.active : ''}`}>
+            <span className={styles.navLinkText}>Contact</span>
+            {isActive('/contact') && <div className={styles.activeIndicator} />}
+          </Link>
         </div>
 
         <div className={styles.authButtons}>

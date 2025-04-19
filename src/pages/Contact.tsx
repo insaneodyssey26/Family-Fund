@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/Contact.module.css';
+import transition from '../styles/PageTransition.module.css';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,11 @@ const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,18 +30,18 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.hero}>
+    <div className={`${styles.container} ${transition.content}`}>
+      <div className={`${styles.hero} ${transition.section}`}>
         <h1>Contact Us</h1>
         <p className={styles.subtitle}>We're here to help you with any questions or concerns</p>
       </div>
 
       <div className={styles.content}>
-        <div className={styles.contactInfo}>
+        <div className={`${styles.contactInfo} ${transition.section}`}>
           <div className={styles.infoCard}>
             <h3>Get in Touch</h3>
             <p>Have questions about FamilyFund? We'd love to hear from you.</p>
-            
+
             <div className={styles.contactDetails}>
               <div className={styles.detailItem}>
                 <span className={styles.icon}>📧</span>
@@ -44,7 +50,7 @@ const Contact: React.FC = () => {
                   <p>support@familyfund.com</p>
                 </div>
               </div>
-              
+
               <div className={styles.detailItem}>
                 <span className={styles.icon}>📱</span>
                 <div>
@@ -52,7 +58,7 @@ const Contact: React.FC = () => {
                   <p>+1 (555) 123-4567</p>
                 </div>
               </div>
-              
+
               <div className={styles.detailItem}>
                 <span className={styles.icon}>📍</span>
                 <div>
@@ -64,7 +70,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.contactForm}>
+        <div className={`${styles.contactForm} ${transition.section}`}>
           <form onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
               <label htmlFor="name">Full Name</label>
