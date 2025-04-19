@@ -3,12 +3,12 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBzNAyUgGiEd6nnBn6-bu4hZHStVfAMkqM",
-    authDomain: "family-fund-2605.firebaseapp.com",
-    projectId: "family-fund-2605",
-    storageBucket: "family-fund-2605.firebasestorage.app",
-    messagingSenderId: "827375343717",
-    appId: "1:827375343717:web:7a14fc9d07dba881430e8c"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
