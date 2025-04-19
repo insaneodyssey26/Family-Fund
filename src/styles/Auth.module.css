@@ -12,7 +12,7 @@
   width: 100%;
   max-width: 420px;
   padding: 2rem;
-  animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.3s ease-out;
 }
 
 @keyframes fadeIn {
@@ -20,6 +20,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -81,7 +82,7 @@
 
 .formHeader {
   margin-bottom: 2rem;
-  animation: slideIn 0.5s ease-out 0.2s both;
+  animation: slideIn 0.3s ease-out 0.1s both;
 }
 
 @keyframes slideIn {
@@ -89,6 +90,7 @@
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -118,7 +120,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  animation: fadeIn 0.5s ease-out 0.3s both;
+  animation: fadeIn 0.3s ease-out 0.15s both;
 }
 
 .inputGroup label {
@@ -188,10 +190,27 @@
 }
 
 @keyframes shake {
-  10%, 90% { transform: translate3d(-1px, 0, 0); }
-  20%, 80% { transform: translate3d(2px, 0, 0); }
-  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-  40%, 60% { transform: translate3d(4px, 0, 0); }
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 .errorMessage {
@@ -320,7 +339,7 @@
   text-align: center;
   color: var(--text-secondary);
   margin: 1rem 0;
-  animation: fadeIn 0.5s ease-out 0.4s both;
+  animation: fadeIn 0.3s ease-out 0.2s both;
 }
 
 .divider::before,
@@ -404,7 +423,7 @@
 .switchForm {
   margin-top: 2rem;
   text-align: center;
-  animation: fadeIn 0.5s ease-out 0.5s both;
+  animation: fadeIn 0.3s ease-out 0.25s both;
 }
 
 .switchForm p {
@@ -453,4 +472,4 @@
   .formHeader h1 {
     font-size: 1.75rem;
   }
-} 
+}

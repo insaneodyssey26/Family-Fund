@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.3s ease-out forwards;
 }
 
 .hero {
@@ -13,13 +13,13 @@
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
-  animation: heroSlideIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: heroSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes heroSlideIn {
   from {
     opacity: 0;
-    transform: translateY(50px) scale(0.95);
+    transform: translateY(20px) scale(0.95);
   }
 
   to {
@@ -59,7 +59,7 @@
   position: relative;
   z-index: 2;
   letter-spacing: -0.02em;
-  animation: titleScaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+  animation: titleScaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
 }
 
 @keyframes titleScaleIn {
@@ -83,7 +83,7 @@
   z-index: 2;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   opacity: 0;
-  animation: subtitleFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+  animation: subtitleFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
 }
 
 @keyframes subtitleFadeIn {
@@ -112,7 +112,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translateX(-20px);
-  animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  animation: slideInLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
 }
 
 @keyframes slideInLeft {
@@ -237,7 +237,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translateX(20px);
-  animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+  animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
 }
 
 @keyframes slideInRight {

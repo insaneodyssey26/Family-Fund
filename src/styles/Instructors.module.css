@@ -5,18 +5,21 @@
 }
 
 .title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
     color: #1a1a1a;
-    text-align: center;
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease forwards;
 }
 
 .subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #666;
-    text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease 0.1s forwards;
 }
 
 .instructorsGrid {
@@ -28,62 +31,80 @@
 
 .instructorCard {
     background: white;
-    border-radius: 8px;
-    padding: 1.2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    transition: all 0.15s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease forwards;
 }
 
-.instructorCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.instructorCard:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.instructorCard:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.instructorCard:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.instructorCard:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.instructorCard:nth-child(5) {
+    animation-delay: 0.35s;
+}
+
+.instructorCard:nth-child(6) {
+    animation-delay: 0.4s;
+}
+
+.instructorCard:nth-child(7) {
+    animation-delay: 0.45s;
+}
+
+.instructorCard:nth-child(8) {
+    animation-delay: 0.5s;
+}
+
+.instructorCard:nth-child(9) {
+    animation-delay: 0.55s;
+}
+
+.instructorCard:nth-child(10) {
+    animation-delay: 0.6s;
+}
+
+.instructorCard:nth-child(11) {
+    animation-delay: 0.65s;
+}
+
+.instructorCard:nth-child(12) {
+    animation-delay: 0.7s;
 }
 
 .instructorCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.instructorCard:hover::before {
-    opacity: 1;
-}
-
-.instructorCard:active {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .instructorName {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #1a1a1a;
-    margin-bottom: 0.3rem;
-    transition: color 0.3s ease;
-}
-
-.instructorCard:hover .instructorName {
-    color: #2563eb;
+    margin-bottom: 0.5rem;
 }
 
 .instructorRole {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #666;
-    margin-bottom: 0.8rem;
-    transition: color 0.3s ease;
-}
-
-.instructorCard:hover .instructorRole {
-    color: #4b5563;
+    margin-bottom: 1rem;
 }
 
 .instructorBio {
@@ -96,22 +117,28 @@
 .expertiseContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
 }
 
 .expertiseTag {
     background: #f0f0f0;
     color: #666;
-    padding: 0.3rem 0.6rem;
-    border-radius: 15px;
-    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.3s ease;
 }
 
-.instructorCard:hover .expertiseTag {
-    background: #e5e7eb;
-    color: #4b5563;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {
@@ -120,11 +147,11 @@
     }
 
     .title {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .instructorsGrid {
