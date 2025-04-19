@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
                 <span className={styles.icon}>📱</span>
                 <div>
                   <h4>Phone</h4>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+91 (000) 000-0000</p>
                 </div>
               </div>
 
@@ -90,7 +90,7 @@ const Contact: React.FC = () => {
                 <span className={styles.icon}>📍</span>
                 <div>
                   <h4>Address</h4>
-                  <p>123 Financial Street, Suite 100<br />San Francisco, CA 94105</p>
+                  <p>Kolkata, West Bengal 700091<br />India</p>
                 </div>
               </div>
             </div>
