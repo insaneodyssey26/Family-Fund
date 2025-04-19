@@ -79,18 +79,18 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
             </>
           ) : (
             <>
-              <button
-                className={styles.loginButton}
-                onClick={() => navigate('/login')}
-              >
-                Log In
-              </button>
-              <button
-                className={styles.signupButton}
-                onClick={() => navigate('/signup')}
-              >
-                Sign Up
-              </button>
+          <button
+            className={styles.loginButton}
+            onClick={() => navigate('/login')}
+          >
+            Log In
+          </button>
+          <button
+            className={styles.signupButton}
+            onClick={() => navigate('/signup')}
+          >
+            Sign Up
+          </button>
             </>
           )}
         </div>
