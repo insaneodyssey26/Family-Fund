@@ -8,19 +8,19 @@ const FeaturedResources: React.FC = () => {
       title: 'Family Budget Planner',
       description: 'A comprehensive guide to managing your family finances effectively.',
       category: 'Finance',
-      imageUrl: '/images/budget-planner.jpg',
+      imageUrl: 'https://placehold.co/600x400/6C5CE7/FFFFFF?text=Budget+Planner',
     },
     {
       title: 'Educational Resources',
       description: 'Curated learning materials for children of all ages.',
       category: 'Education',
-      imageUrl: '/images/education.jpg',
+      imageUrl: 'https://placehold.co/600x400/00b894/FFFFFF?text=Education',
     },
     {
       title: 'Health & Wellness',
       description: 'Tips and resources for maintaining family health and wellness.',
       category: 'Health',
-      imageUrl: '/images/health.jpg',
+      imageUrl: 'https://placehold.co/600x400/fd79a8/FFFFFF?text=Health+Wellness',
     },
   ];
 
