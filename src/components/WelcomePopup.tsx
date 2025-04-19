@@ -1,29 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/WelcomePopup.module.css';
 
 const WelcomePopup: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const hasSeenWelcome = localStorage.getItem('hasSeenWelcome');
     if (!hasSeenWelcome) {
-      setIsVisible(true);
-      localStorage.setItem('hasSeenWelcome', 'true');
+      setIsOpen(true);
     }
   }, []);
 
-  if (!isVisible) return null;
+  const handleClose = () => {
+    setIsOpen(false);
+    localStorage.setItem('hasSeenWelcome', 'true');
+  };
+
+  if (!isOpen) return null;
 
   return (
-    <div className={styles.popup}>
-      <div className={styles.content}>
-        <h2>Welcome to Family Fund!</h2>
-        <p>Discover valuable resources for middle-class families.</p>
-        <button className={styles.closeButton} onClick={() => setIsVisible(false)}>
-          Got it!
+    <>
+      <div className={styles.overlay} onClick={handleClose} />
+      <div className={styles.popup}>
+        <button className={styles.closeButton} onClick={handleClose}>
+          ×
         </button>
+        <div className={styles.content}>
+          <h2>Welcome to FamilyFund!</h2>
+          <p>
+            Your journey to better family financial planning starts here. Explore our
+            resources, connect with experts, and take control of your family's
+            financial future.
+          </p>
+          <button className={styles.getStartedButton} onClick={handleClose}>
+            Get Started
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
