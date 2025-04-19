@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/ResourceCard.module.css';
 
 interface ResourceCardProps {
   title: string;
   description: string;
   category: string;
-  location: string;
+  location?: string;
+  id?: string;
 }
 
 const ResourceCard: React.FC<ResourceCardProps> = ({
@@ -13,19 +15,31 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
   description,
   category,
   location,
+  id
 }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (id) {
+      navigate(`/resources/${id}`);
+    }
+  };
+
   return (
-    <div className={styles.card}>
-      <div className={styles.mapPlaceholder}>
-        <span className={styles.mapText}>Map View</span>
-      </div>
+    <div className={styles.card} onClick={handleClick}>
       <div className={styles.content}>
+        <div className={styles.category}>{category}</div>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>
-        <div className={styles.meta}>
-          <span className={styles.category}>{category}</span>
-          <span className={styles.location}>{location}</span>
-        </div>
+        {location && (
+          <div className={styles.location}>
+            <span className={styles.locationIcon}>📍</span>
+            {location}
+          </div>
+        )}
+      </div>
+      <div className={styles.overlay}>
+        <span className={styles.viewDetails}>View Details</span>
       </div>
     </div>
   );

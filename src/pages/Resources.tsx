@@ -5,42 +5,42 @@ import styles from '../styles/Resources.module.css';
 // Dummy data for resources
 const resources = [
   {
-    id: 1,
+    id: 'financial-planning-workshop',
     title: 'Financial Planning Workshop',
     description: 'Learn essential financial planning strategies for your family\'s future.',
     category: 'Finance',
     location: 'New York, NY',
   },
   {
-    id: 2,
+    id: 'college-savings-guide',
     title: 'College Savings Guide',
     description: 'Comprehensive guide to saving for your child\'s education.',
     category: 'Education',
     location: 'Online',
   },
   {
-    id: 3,
+    id: 'healthcare-options-seminar',
     title: 'Healthcare Options Seminar',
     description: 'Understanding healthcare options and insurance for families.',
     category: 'Healthcare',
     location: 'Chicago, IL',
   },
   {
-    id: 4,
+    id: 'home-buying-workshop',
     title: 'Home Buying Workshop',
     description: 'Expert advice on buying your first family home.',
     category: 'Housing',
     location: 'Los Angeles, CA',
   },
   {
-    id: 5,
+    id: 'tax-planning-guide',
     title: 'Tax Planning Guide',
     description: 'Strategies for optimizing your family\'s tax situation.',
     category: 'Finance',
     location: 'Online',
   },
   {
-    id: 6,
+    id: 'childcare-resources',
     title: 'Childcare Resources',
     description: 'Finding quality childcare options in your area.',
     category: 'Family',
@@ -56,6 +56,7 @@ const Resources: React.FC = () => {
         {resources.map((resource) => (
           <ResourceCard
             key={resource.id}
+            id={resource.id}
             title={resource.title}
             description={resource.description}
             category={resource.category}
