@@ -117,17 +117,12 @@
   font-weight: 500;
   padding: 0.5rem 1.25rem;
   border-radius: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   font-size: 1rem;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.navLinkText {
-  position: relative;
-  z-index: 1;
 }
 
 .navLink:hover {
@@ -150,7 +145,7 @@
   height: 4px;
   border-radius: 50%;
   background-color: var(--primary);
-  animation: dotAppear 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: dotAppear 0.3s ease;
 }
 
 @keyframes dotAppear {
