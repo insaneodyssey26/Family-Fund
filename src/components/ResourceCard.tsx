@@ -41,11 +41,21 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
     }
   };
 
-  const handleViewDetails = () => {
+  const handleViewDetails = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsModalOpen(true);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseModal = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsModalOpen(false);
+  };
+
+  const handleModalClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
+  const handleOverlayClick = () => {
     setIsModalOpen(false);
   };
 
@@ -68,10 +78,12 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
       </div>
 
       {isModalOpen && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modal}>
+        <div className={styles.modalOverlay} onClick={handleOverlayClick}>
+          <div className={styles.modal} onClick={handleModalClick}>
             <button className={styles.closeButton} onClick={handleCloseModal}>
-              ×
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
             <div className={styles.modalContent}>
               <div className={styles.modalImageContainer}>
