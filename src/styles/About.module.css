@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .hero {
@@ -13,13 +13,13 @@
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
-  animation: heroSlideIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: heroSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes heroSlideIn {
   from {
     opacity: 0;
-    transform: translateY(50px) scale(0.95);
+    transform: translateY(20px) scale(0.95);
   }
 
   to {
@@ -59,7 +59,7 @@
   position: relative;
   z-index: 2;
   letter-spacing: -0.02em;
-  animation: titleScaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+  animation: titleScaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both;
 }
 
 @keyframes titleScaleIn {
@@ -83,7 +83,7 @@
   z-index: 2;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   opacity: 0;
-  animation: subtitleFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+  animation: subtitleFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
 }
 
 @keyframes subtitleFadeIn {
@@ -111,7 +111,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translateY(20px);
-  animation: sectionFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: sectionFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes sectionFadeIn {
@@ -122,19 +122,19 @@
 }
 
 .section:nth-child(1) {
-  animation-delay: 0.2s;
+  animation-delay: 0.15s;
 }
 
 .section:nth-child(2) {
-  animation-delay: 0.4s;
+  animation-delay: 0.3s;
 }
 
 .section:nth-child(3) {
-  animation-delay: 0.6s;
+  animation-delay: 0.45s;
 }
 
 .section:nth-child(4) {
-  animation-delay: 0.8s;
+  animation-delay: 0.6s;
 }
 
 .section h2 {

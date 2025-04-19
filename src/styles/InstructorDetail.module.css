@@ -16,6 +16,9 @@
     align-items: center;
     gap: 0.5rem;
     transition: color 0.15s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.3s ease forwards;
 }
 
 .backButton:hover {
@@ -27,6 +30,9 @@
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease 0.1s forwards;
 }
 
 .header {
@@ -39,6 +45,9 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.3s ease 0.2s forwards;
 }
 
 .profileIcon {
@@ -50,6 +59,11 @@
     align-items: center;
     justify-content: center;
     border: 2px solid #eee;
+    transition: transform 0.2s ease;
+}
+
+.profileIcon:hover {
+    transform: scale(1.05);
 }
 
 .headerInfo {
@@ -61,15 +75,48 @@
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease 0.3s forwards;
 }
 
 .role {
     font-size: 1.2rem;
     color: #666;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease 0.35s forwards;
 }
 
 .section {
     margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.section:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.section:nth-child(2) {
+    animation-delay: 0.45s;
+}
+
+.section:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.section:nth-child(4) {
+    animation-delay: 0.55s;
+}
+
+.section:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+.section:nth-child(6) {
+    animation-delay: 0.65s;
 }
 
 .sectionTitle {
@@ -101,6 +148,21 @@
     color: #444;
     padding: 0.5rem 0;
     border-bottom: 1px solid #eee;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.3s ease forwards;
+}
+
+.educationItem:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.educationItem:nth-child(2) {
+    animation-delay: 0.45s;
+}
+
+.educationItem:nth-child(3) {
+    animation-delay: 0.5s;
 }
 
 .educationItem:last-child {
@@ -120,6 +182,29 @@
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleIn 0.2s ease forwards;
+}
+
+.expertiseTag:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.expertiseTag:nth-child(2) {
+    animation-delay: 0.45s;
+}
+
+.expertiseTag:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.expertiseTag:nth-child(4) {
+    animation-delay: 0.55s;
+}
+
+.expertiseTag:nth-child(5) {
+    animation-delay: 0.6s;
 }
 
 .achievementsList {
@@ -132,10 +217,61 @@
     color: #444;
     padding: 0.5rem 0;
     border-bottom: 1px solid #eee;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.3s ease forwards;
+}
+
+.achievementItem:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.achievementItem:nth-child(2) {
+    animation-delay: 0.45s;
+}
+
+.achievementItem:nth-child(3) {
+    animation-delay: 0.5s;
 }
 
 .achievementItem:last-child {
     border-bottom: none;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @media (max-width: 768px) {

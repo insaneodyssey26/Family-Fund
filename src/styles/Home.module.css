@@ -36,7 +36,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .heroTitle {
@@ -45,7 +45,7 @@
   margin-bottom: 1rem;
   line-height: 1.2;
   color: white;
-  animation: scaleIn 0.6s ease-out forwards;
+  animation: scaleIn 0.4s ease-out forwards;
 }
 
 .heroSubtitle {
@@ -54,7 +54,7 @@
   max-width: 600px;
   margin: 0 auto 1.5rem;
   color: white;
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.4s ease-out 0.15s forwards;
 }
 
 .heroActions {
@@ -63,7 +63,7 @@
   align-items: center;
   gap: 1.5rem;
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.3s forwards;
 }
 
 .quickLinks {
@@ -98,7 +98,7 @@
   padding: 4rem 0;
   text-align: center;
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .features h2 {
@@ -106,7 +106,7 @@
   margin-bottom: 3rem;
   color: var(--text-primary);
   opacity: 0;
-  animation: scaleIn 0.6s ease-out 0.2s forwards;
+  animation: scaleIn 0.4s ease-out 0.15s forwards;
 }
 
 .featuresGrid {
@@ -141,15 +141,15 @@
 }
 
 .featureCard:nth-child(1) {
-  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.3s forwards;
 }
 
 .featureCard:nth-child(2) {
-  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.4s forwards;
 }
 
 .featureCard:nth-child(3) {
-  animation: fadeInUp 0.6s ease-out 0.8s forwards;
+  animation: fadeInUp 0.4s ease-out 0.5s forwards;
 }
 
 .featureCard:hover {
@@ -266,7 +266,7 @@
   padding: 4rem 0;
   text-align: center;
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 .testimonials h2 {
@@ -274,7 +274,7 @@
   margin-bottom: 3rem;
   color: var(--text-primary);
   opacity: 0;
-  animation: scaleIn 0.6s ease-out 0.2s forwards;
+  animation: scaleIn 0.4s ease-out 0.15s forwards;
 }
 
 .testimonialGrid {
@@ -310,15 +310,15 @@
 }
 
 .testimonialCard:nth-child(1) {
-  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+  animation: fadeInUp 0.4s ease-out 0.3s forwards;
 }
 
 .testimonialCard:nth-child(2) {
-  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+  animation: fadeInUp 0.4s ease-out 0.4s forwards;
 }
 
 .testimonialCard:nth-child(3) {
-  animation: fadeInUp 0.6s ease-out 0.8s forwards;
+  animation: fadeInUp 0.4s ease-out 0.5s forwards;
 }
 
 .testimonialCard:hover {
@@ -386,7 +386,7 @@
   border-radius: 1rem;
   margin: 2rem 0;
   opacity: 0;
-  animation: scaleIn 0.8s ease-out forwards;
+  animation: scaleIn 0.3s ease-out forwards;
 }
 
 .ctaSection h2 {
