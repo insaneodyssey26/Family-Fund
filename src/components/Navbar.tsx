@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/Navbar.module.css';
 
 interface NavbarProps {
@@ -9,9 +10,19 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { currentUser, logout } = useAuth();
 
   const isActive = (path: string) => {
     return location.pathname === path;
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/');
+    } catch (error) {
+      console.error('Failed to log out:', error);
+    }
   };
 
   return (
@@ -54,18 +65,34 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
         </div>
 
         <div className={styles.authButtons}>
-          <button
-            className={styles.loginButton}
-            onClick={() => navigate('/login')}
-          >
-            Log In
-          </button>
-          <button
-            className={styles.signupButton}
-            onClick={() => navigate('/signup')}
-          >
-            Sign Up
-          </button>
+          {currentUser ? (
+            <>
+              <Link to="/profile" className={styles.profileButton}>
+                Profile
+              </Link>
+              <button
+                className={styles.logoutButton}
+                onClick={handleLogout}
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className={styles.loginButton}
+                onClick={() => navigate('/login')}
+              >
+                Log In
+              </button>
+              <button
+                className={styles.signupButton}
+                onClick={() => navigate('/signup')}
+              >
+                Sign Up
+              </button>
+            </>
+          )}
         </div>
 
         <button
