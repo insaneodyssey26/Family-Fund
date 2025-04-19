@@ -6,6 +6,8 @@
   transition: all 0.3s ease;
   position: relative;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .imageContainer {
@@ -13,6 +15,7 @@
   height: 200px;
   overflow: hidden;
   position: relative;
+  border-radius: 12px 12px 0 0;
 }
 
 .imageContainer::before {
@@ -50,6 +53,10 @@
 .content {
   padding: 20px;
   position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .content::before {
@@ -114,6 +121,8 @@
   font-size: 0.9rem;
   color: #666;
   margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .locationIcon {
@@ -161,34 +170,23 @@
   color: #666;
 }
 
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.viewDetailsButton {
+  margin-top: auto;
+  padding: 10px 20px;
   background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-  padding: 12px;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-}
-
-.card:hover .overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.viewDetails {
   color: white;
+  border: none;
+  border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  align-self: flex-start;
 }
 
-.card:hover .viewDetails {
-  color: white;
+.viewDetailsButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -283,6 +281,7 @@
   height: 300px;
   border-radius: 12px;
   overflow: hidden;
+  margin-bottom: 24px;
 }
 
 .modalImage {
