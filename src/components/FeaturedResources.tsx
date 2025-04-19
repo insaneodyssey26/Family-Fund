@@ -1,43 +1,67 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ResourceCard from './ResourceCard';
 import styles from '../styles/FeaturedResources.module.css';
 
-const FeaturedResources: React.FC = () => {
-  const resources = [
+const Categories: React.FC = () => {
+  const navigate = useNavigate();
+  const categories = [
     {
-      title: 'Family Budget Planner',
-      description: 'A comprehensive guide to managing your family finances effectively.',
+      id: 'finance',
+      title: 'Finance & Budgeting',
+      description: 'Resources for managing family finances, budgeting, and financial planning.',
       category: 'Finance',
-      imageUrl: 'https://placehold.co/600x400/6C5CE7/FFFFFF?text=Budget+Planner',
+      imageUrl: 'https://placehold.co/600x400/6C5CE7/FFFFFF?text=Finance',
     },
     {
-      title: 'Educational Resources',
-      description: 'Curated learning materials for children of all ages.',
+      id: 'education',
+      title: 'Education',
+      description: 'Learning resources and educational support for children and parents.',
       category: 'Education',
       imageUrl: 'https://placehold.co/600x400/00b894/FFFFFF?text=Education',
     },
     {
+      id: 'health',
       title: 'Health & Wellness',
-      description: 'Tips and resources for maintaining family health and wellness.',
+      description: 'Resources for family health, wellness, and healthcare planning.',
       category: 'Health',
-      imageUrl: 'https://placehold.co/600x400/fd79a8/FFFFFF?text=Health+Wellness',
-    },
+      imageUrl: 'https://placehold.co/600x400/fd79a8/FFFFFF?text=Health',
+    }
   ];
+
+  const handleCategoryClick = (category: string) => {
+    navigate(`/category/${category.toLowerCase()}`);
+  };
 
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Featured Resources</h2>
-        <p className={styles.subtitle}>Discover helpful tools and information for your family</p>
+        <h2 className={styles.title}>Resource Categories</h2>
+        <p className={styles.subtitle}>Explore our comprehensive collection of family resources</p>
         <div className={styles.grid}>
-          {resources.map((resource, index) => (
-            <ResourceCard
-              key={index}
-              title={resource.title}
-              description={resource.description}
-              category={resource.category}
-              imageUrl={resource.imageUrl}
-            />
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              className={styles.categoryCard}
+              onClick={() => handleCategoryClick(category.category)}
+            >
+              <div className={styles.categoryImage}>
+                <img src={category.imageUrl} alt={category.title} />
+              </div>
+              <div className={styles.categoryContent}>
+                <h3>{category.title}</h3>
+                <p>{category.description}</p>
+                <button
+                  className={styles.viewButton}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCategoryClick(category.category);
+                  }}
+                >
+                  View Resources
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -45,4 +69,4 @@ const FeaturedResources: React.FC = () => {
   );
 };
 
-export default FeaturedResources; 
+export default Categories; 
