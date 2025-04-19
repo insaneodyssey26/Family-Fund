@@ -11,21 +11,21 @@ const Categories: React.FC = () => {
       title: 'Finance & Budgeting',
       description: 'Resources for managing family finances, budgeting, and financial planning.',
       category: 'Finance',
-      imageUrl: 'https://placehold.co/600x400/6C5CE7/FFFFFF?text=Finance',
+      imageUrl: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     },
     {
       id: 'education',
       title: 'Education',
       description: 'Learning resources and educational support for children and parents.',
       category: 'Education',
-      imageUrl: 'https://placehold.co/600x400/00b894/FFFFFF?text=Education',
+      imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     },
     {
       id: 'health',
       title: 'Health & Wellness',
       description: 'Resources for family health, wellness, and healthcare planning.',
       category: 'Health',
-      imageUrl: 'https://placehold.co/600x400/fd79a8/FFFFFF?text=Health',
+      imageUrl: 'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80',
     }
   ];
 
