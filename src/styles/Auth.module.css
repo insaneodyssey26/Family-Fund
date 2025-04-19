@@ -214,11 +214,13 @@
 }
 
 .errorMessage {
-  color: #ff4d4f;
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
-  display: block;
-  animation: fadeIn 0.3s ease-out;
+  background-color: #fee2e2;
+  color: #dc2626;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-align: center;
 }
 
 .togglePassword {

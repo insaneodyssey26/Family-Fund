@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../styles/Auth.module.css';
 
 const Auth: React.FC = () => {
@@ -9,6 +9,9 @@ const Auth: React.FC = () => {
     email: '',
     password: ''
   });
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -16,12 +19,38 @@ const Auth: React.FC = () => {
       ...prev,
       [name]: value
     }));
+    setError(''); // Clear error when user types
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', // Important for cookies
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      // On success, redirect to dashboard
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -33,13 +62,19 @@ const Auth: React.FC = () => {
             <span className={styles.logoIcon}>💰</span>
             <span className={styles.logoText}>FamilyFund</span>
           </div>
-          
+
           <div className={styles.formHeader}>
             <h1>{isLogin ? 'Welcome Back' : 'Create Account'}</h1>
-            <p>{isLogin 
-              ? 'Sign in to continue to FamilyFund' 
+            <p>{isLogin
+              ? 'Sign in to continue to FamilyFund'
               : 'Join FamilyFund to get started'}</p>
           </div>
+
+          {error && (
+            <div className={styles.errorMessage}>
+              {error}
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} className={styles.form}>
             {!isLogin && (
@@ -53,10 +88,11 @@ const Auth: React.FC = () => {
                   onChange={handleChange}
                   placeholder="Enter your full name"
                   required
+                  disabled={isLoading}
                 />
               </div>
             )}
-            
+
             <div className={styles.inputGroup}>
               <label htmlFor="email">Email</label>
               <input
@@ -67,6 +103,7 @@ const Auth: React.FC = () => {
                 onChange={handleChange}
                 placeholder="Enter your email"
                 required
+                disabled={isLoading}
               />
             </div>
 
@@ -80,6 +117,7 @@ const Auth: React.FC = () => {
                 onChange={handleChange}
                 placeholder="Enter your password"
                 required
+                disabled={isLoading}
               />
             </div>
 
@@ -95,8 +133,12 @@ const Auth: React.FC = () => {
               </div>
             )}
 
-            <button type="submit" className={styles.submitButton}>
-              {isLogin ? 'Sign In' : 'Sign Up'}
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Loading...' : (isLogin ? 'Sign In' : 'Sign Up')}
             </button>
 
             <div className={styles.divider}>
@@ -112,7 +154,7 @@ const Auth: React.FC = () => {
           <div className={styles.switchForm}>
             <p>
               {isLogin ? "Don't have an account?" : "Already have an account?"}
-              <button 
+              <button
                 type="button"
                 onClick={() => setIsLogin(!isLogin)}
               >
@@ -128,7 +170,7 @@ const Auth: React.FC = () => {
         <div className={styles.illustrationContent}>
           <h2>Your Family's Financial Future Starts Here</h2>
           <p>Join thousands of families who trust FamilyFund for their financial planning needs</p>
-          
+
           <div className={styles.features}>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>📊</div>
@@ -137,7 +179,7 @@ const Auth: React.FC = () => {
                 <p>Create and manage family budgets with ease</p>
               </div>
             </div>
-            
+
             <div className={styles.feature}>
               <div className={styles.featureIcon}>🎯</div>
               <div className={styles.featureText}>
@@ -145,7 +187,7 @@ const Auth: React.FC = () => {
                 <p>Set and achieve your family's financial goals</p>
               </div>
             </div>
-            
+
             <div className={styles.feature}>
               <div className={styles.featureIcon}>📱</div>
               <div className={styles.featureText}>
