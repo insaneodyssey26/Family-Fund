@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/ResourceCard.module.css';
 
@@ -26,7 +26,6 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
   imageUrl
 }) => {
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleResourceClick = () => {
     if (id) {
@@ -41,81 +40,41 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
     }
   };
 
-  const handleViewDetails = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsModalOpen(false);
-  };
-
-  const handleModalClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
-
-  const handleOverlayClick = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <>
-      <div className={styles.card}>
+    <div className={styles.card} onClick={handleResourceClick}>
+      {imageUrl && (
         <div className={styles.imageContainer}>
           <img src={imageUrl} alt={title} className={styles.image} />
         </div>
-        <div className={styles.content}>
-          <span className={styles.category}>{category}</span>
-          <h3 className={styles.title}>{title}</h3>
-          <p className={styles.description}>{description}</p>
-        </div>
-        <div className={styles.overlay}>
-          <span className={styles.viewDetails} onClick={handleViewDetails}>
-            View Details
-          </span>
-        </div>
-      </div>
-
-      {isModalOpen && (
-        <div className={styles.modalOverlay} onClick={handleOverlayClick}>
-          <div className={styles.modal} onClick={handleModalClick}>
-            <button className={styles.closeButton} onClick={handleCloseModal}>
+      )}
+      <div className={styles.content}>
+        <span className={styles.category}>{category}</span>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+        {location && (
+          <div className={styles.location}>
+            <span className={styles.locationIcon}>📍</span>
+            {location}
+          </div>
+        )}
+        {instructorName && (
+          <div className={styles.instructorInfo} onClick={handleInstructorClick}>
+            <div className={styles.instructorIcon}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#666" />
               </svg>
-            </button>
-            <div className={styles.modalContent}>
-              <div className={styles.modalImageContainer}>
-                <img src={imageUrl} alt={title} className={styles.modalImage} />
-              </div>
-              <div className={styles.modalText}>
-                <span className={styles.modalCategory}>{category}</span>
-                <h2 className={styles.modalTitle}>{title}</h2>
-                <p className={styles.modalDescription}>{description}</p>
-                <div className={styles.modalFeatures}>
-                  <h3>Key Features</h3>
-                  <ul>
-                    <li>Interactive learning materials</li>
-                    <li>Step-by-step guides</li>
-                    <li>Downloadable resources</li>
-                    <li>Expert tips and advice</li>
-                  </ul>
-                </div>
-                <div className={styles.modalActions}>
-                  <button className={styles.downloadButton}>
-                    Download Guide
-                  </button>
-                  <button className={styles.shareButton}>
-                    Share Resource
-                  </button>
-                </div>
-              </div>
+            </div>
+            <div className={styles.instructorDetails}>
+              <span className={styles.instructorName}>{instructorName}</span>
+              <span className={styles.instructorRole}>{instructorRole}</span>
             </div>
           </div>
-        </div>
-      )}
-    </>
+        )}
+        <button className={styles.viewDetailsButton}>
+          View Details
+        </button>
+      </div>
+    </div>
   );
 };
 
