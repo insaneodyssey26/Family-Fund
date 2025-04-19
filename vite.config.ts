@@ -7,14 +7,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    strictPort: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-        secure: false,
-      }
-    }
   },
   // Configure module resolution
   resolve: {
@@ -25,15 +17,6 @@ export default defineConfig({
   // Configure build options
   build: {
     // Enable source maps
-    sourcemap: true,
-    // Configure chunk size warning
-    chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-        },
-      },
-    },
+    sourcemap: true
   },
 })

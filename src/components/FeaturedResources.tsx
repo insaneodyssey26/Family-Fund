@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ResourceCard from './ResourceCard';
 import styles from '../styles/FeaturedResources.module.css';
 
 const Categories: React.FC = () => {
