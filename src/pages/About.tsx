@@ -25,41 +25,64 @@ const About: React.FC = () => {
           </p>
         </section>
 
-        <section className={`${styles.section} ${transition.section}`}>
-          <h2>What We Offer</h2>
-          <div className={styles.features}>
-            <div className={styles.feature}>
-              <h3>Family Budgeting</h3>
-              <p>
-                Create and manage shared budgets that everyone in the family can access and
-                contribute to. Track expenses, set limits, and work together towards common goals.
-              </p>
+        <section className={`${styles.statsSection} ${transition.section}`}>
+          <div className={styles.statsGrid}>
+            <div className={styles.statCard}>
+              <span className={styles.statNumber}>10K+</span>
+              <p className={styles.statLabel}>Families Helped</p>
             </div>
-            <div className={styles.feature}>
-              <h3>Goal Tracking</h3>
-              <p>
-                Set financial goals as a family and track your progress. Whether it's saving for
-                a vacation, education, or a new home, we help you stay on track.
-              </p>
+            <div className={styles.statCard}>
+              <span className={styles.statNumber}>95%</span>
+              <p className={styles.statLabel}>Success Rate</p>
             </div>
-            <div className={styles.feature}>
-              <h3>Financial Education</h3>
-              <p>
-                Access resources and tools to improve your family's financial literacy. Learn
-                together and make informed decisions about your money.
-              </p>
+            <div className={styles.statCard}>
+              <span className={styles.statNumber}>24/7</span>
+              <p className={styles.statLabel}>Support</p>
+            </div>
+            <div className={styles.statCard}>
+              <span className={styles.statNumber}>50+</span>
+              <p className={styles.statLabel}>Expert Advisors</p>
             </div>
           </div>
         </section>
 
-        <section className={`${styles.section} ${transition.section}`}>
-          <h2>Join Our Community</h2>
-          <p>
-            Become part of a growing community of families who are taking control of their
-            financial future. Sign up today and start your journey towards better financial
-            management and stronger family bonds.
-          </p>
-          <button className={styles.ctaButton}>Get Started</button>
+        <section className={`${styles.section} ${styles.valuesSection} ${transition.section}`}>
+          <h2>Our Values</h2>
+          <div className={styles.valuesGrid}>
+            <div className={styles.valueCard}>
+              <div className={styles.valueIcon}>🤝</div>
+              <h3>Trust</h3>
+              <p>Building lasting relationships through transparency and reliability</p>
+            </div>
+            <div className={styles.valueCard}>
+              <div className={styles.valueIcon}>💡</div>
+              <h3>Innovation</h3>
+              <p>Continuously improving our services to meet evolving family needs</p>
+            </div>
+            <div className={styles.valueCard}>
+              <div className={styles.valueIcon}>🎯</div>
+              <h3>Excellence</h3>
+              <p>Delivering the highest quality financial guidance and support</p>
+            </div>
+            <div className={styles.valueCard}>
+              <div className={styles.valueIcon}>❤️</div>
+              <h3>Family First</h3>
+              <p>Putting families at the heart of everything we do</p>
+            </div>
+          </div>
+        </section>
+
+        <section className={`${styles.section} ${styles.teamSection} ${transition.section}`}>
+          <h2>Our Commitment</h2>
+          <div className={styles.teamContent}>
+            <p>
+              At FamilyFund, we're committed to providing the tools, resources, and support
+              that families need to build a secure financial future. Our team of experts works
+              tirelessly to ensure that every family has access to the best financial planning
+              resources and guidance.
+            </p>
+            <button className={styles.ctaButton}>Join Our Community</button>
+          </div>
         </section>
       </div>
     </div>
