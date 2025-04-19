@@ -1,78 +1,126 @@
 .card {
   background: white;
-  border-radius: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  transition: all 0.2s ease;
   position: relative;
-  border: 1px solid #e5e7eb;
+  cursor: pointer;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .content {
-  padding: 1.5rem;
+  padding: 20px;
 }
 
 .category {
   display: inline-block;
-  background: #6c5ce7;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 4px rgba(108, 92, 231, 0.2);
+  padding: 4px 12px;
+  background-color: #f0f0f0;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 12px;
 }
 
 .title {
-  font-size: 1.5rem;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-  line-height: 1.3;
+  font-size: 1.2rem;
   font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
 }
 
 .description {
-  color: #4a4a4a;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
 
 .location {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #1a1a1a;
   font-size: 0.9rem;
-  font-weight: 500;
+  color: #666;
+  margin-bottom: 16px;
 }
 
 .locationIcon {
-  font-size: 1rem;
-  color: #6c5ce7;
+  margin-right: 8px;
+}
+
+.instructorInfo {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.instructorInfo:hover {
+  background-color: #f0f0f0;
+}
+
+.instructorIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9e9e9;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.instructorDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.instructorName {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.instructorRole {
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(108, 92, 231, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 12px;
+  text-align: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .card:hover .overlay {
@@ -80,22 +128,25 @@
 }
 
 .viewDetails {
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
-  .card {
-    margin-bottom: 1rem;
+  .content {
+    padding: 16px;
   }
 
   .title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
-  .description {
-    font-size: 0.9rem;
+  .instructorInfo {
+    padding: 8px;
+  }
+
+  .instructorIcon {
+    width: 32px;
+    height: 32px;
   }
 }

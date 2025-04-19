@@ -162,7 +162,7 @@
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     width: 100%;
 }
 
@@ -244,7 +244,7 @@
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.15s;
 }
 
 .loginButton:hover {
@@ -260,9 +260,51 @@
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.15s;
 }
 
 .cancelButton:hover {
     background: #d1d5db;
+}
+
+.instructorInfo {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin-top: 8px;
+}
+
+.instructorInfo:hover {
+    background-color: #f0f0f0;
+}
+
+.instructorIcon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9e9e9;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.instructorDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.instructorName {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.instructorRole {
+    font-size: 0.8rem;
+    color: #666;
 }

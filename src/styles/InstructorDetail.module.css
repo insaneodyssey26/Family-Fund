@@ -1,0 +1,180 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.15s ease;
+}
+
+.backButton:hover {
+    color: #1a1a1a;
+}
+
+.instructorDetail {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.profileSection {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profileIcon {
+    width: 100px;
+    height: 100px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #eee;
+}
+
+.headerInfo {
+    flex: 1;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.role {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.sectionTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.experience {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.educationList {
+    list-style: none;
+    padding: 0;
+}
+
+.educationItem {
+    font-size: 1.1rem;
+    color: #444;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.educationItem:last-child {
+    border-bottom: none;
+}
+
+.expertiseContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.expertiseTag {
+    background: #f0f0f0;
+    color: #666;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.achievementsList {
+    list-style: none;
+    padding: 0;
+}
+
+.achievementItem {
+    font-size: 1.1rem;
+    color: #444;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.achievementItem:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .instructorDetail {
+        padding: 1.5rem;
+    }
+
+    .profileSection {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .profileIcon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .name {
+        font-size: 1.8rem;
+    }
+
+    .role {
+        font-size: 1.1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.2rem;
+    }
+
+    .bio,
+    .experience,
+    .educationItem,
+    .achievementItem {
+        font-size: 1rem;
+    }
+}
