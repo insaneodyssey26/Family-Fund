@@ -1,19 +1,28 @@
 .container {
     max-width: 800px;
     margin: 2rem auto;
-    padding: 2rem;
+    padding: 0 1rem;
+}
+
+.registrationCard {
     background: white;
     border-radius: 1rem;
+    padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.container h1 {
-    text-align: center;
-    color: #1f2937;
+.registrationCard h1 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.registrationCard p {
+    color: var(--text-secondary);
     margin-bottom: 2rem;
 }
 
-.registrationForm {
+.form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -26,45 +35,43 @@
 }
 
 .formGroup label {
+    color: var(--text-primary);
     font-weight: 500;
-    color: #374151;
 }
 
-.input,
-.textarea {
+.formGroup input {
     padding: 0.75rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     font-size: 1rem;
-    transition: border-color 0.2s;
+    background-color: var(--background-light);
 }
 
-.input:focus,
-.textarea:focus {
-    outline: none;
-    border-color: #6c5ce7;
-    box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.1);
-}
-
-.textarea {
-    resize: vertical;
-    min-height: 100px;
+.formGroup input:disabled {
+    background-color: var(--background);
+    cursor: not-allowed;
 }
 
 .submitButton {
-    background: #6c5ce7;
+    background: var(--primary);
     color: white;
-    padding: 1rem;
     border: none;
+    padding: 1rem;
     border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
 }
 
 .submitButton:hover {
-    background: #5a4bd1;
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.submitButton:active {
+    transform: translateY(0);
 }
 
 .authPrompt {
@@ -101,6 +108,31 @@
 @media (max-width: 768px) {
     .container {
         margin: 1rem;
+    }
+
+    .registrationCard {
         padding: 1.5rem;
+    }
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.loadingSpinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(var(--primary-rgb), 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }

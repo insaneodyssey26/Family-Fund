@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import styles from '../styles/ResourceDetail.module.css';
 import transition from '../styles/PageTransition.module.css';
 
@@ -217,6 +218,7 @@ const ResourceDetail: React.FC = () => {
     const navigate = useNavigate();
     const [resource, setResource] = useState<any>(null);
     const [showLoginPrompt, setShowLoginPrompt] = useState(false);
+    const { currentUser } = useAuth();
 
     useEffect(() => {
         if (resourceId && resourceDetails[resourceId as keyof typeof resourceDetails]) {
@@ -229,8 +231,7 @@ const ResourceDetail: React.FC = () => {
     if (!resource) return null;
 
     const handleRegisterClick = () => {
-        const isLoggedIn = localStorage.getItem('userToken');
-        if (!isLoggedIn) {
+        if (!currentUser) {
             setShowLoginPrompt(true);
             return;
         }
@@ -238,8 +239,9 @@ const ResourceDetail: React.FC = () => {
     };
 
     const handleLogin = () => {
-        localStorage.setItem('redirectAfterLogin', `/resources/${resourceId}`);
-        navigate('/login');
+        navigate('/login', {
+            state: { from: `/resources/${resourceId}` }
+        });
     };
 
     const handleInstructorClick = () => {
