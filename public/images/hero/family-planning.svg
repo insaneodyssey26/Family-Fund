@@ -1,0 +1,25 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4B45B2;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="pattern1" width="100" height="100" patternUnits="userSpaceOnUse">
+      <circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.2"/>
+      <circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.2"/>
+      <circle cx="50" cy="50" r="20" fill="none" stroke="white" stroke-width="1" stroke-opacity="0.2"/>
+    </pattern>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="2" fill="white" fill-opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad1)"/>
+  <rect width="100%" height="100%" fill="url(#pattern1)"/>
+  <rect width="100%" height="100%" fill="url(#dots)"/>
+  <g transform="translate(960, 540)">
+    <circle r="200" fill="none" stroke="white" stroke-width="2" stroke-opacity="0.1"/>
+    <circle r="150" fill="none" stroke="white" stroke-width="2" stroke-opacity="0.1"/>
+    <circle r="100" fill="none" stroke="white" stroke-width="2" stroke-opacity="0.1"/>
+  </g>
+  <text x="50%" y="50%" font-family="Arial" font-size="48" fill="white" text-anchor="middle">Family Planning</text>
+</svg> 
