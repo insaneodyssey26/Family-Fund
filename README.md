@@ -65,7 +65,6 @@ src/
 
 For any queries, please reach out to us:
 - Email: support@familyfund.com
-- Location: Kolkata, West Bengal, India
 
 ## License
 
