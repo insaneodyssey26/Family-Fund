@@ -60,13 +60,3 @@ src/
 ├── styles/        # Global styles and CSS modules
 └── config/        # Configuration files
 ```
-
-## Contact
-
-For any queries, please reach out to us:
-- Email: support@familyfund.com
-- Location: Kolkata, West Bengal, India
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
