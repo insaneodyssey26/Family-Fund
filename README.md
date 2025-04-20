@@ -60,8 +60,3 @@ src/
 ├── styles/        # Global styles and CSS modules
 └── config/        # Configuration files
 ```
-
-## Contact
-
-For anything:
-- Email: hydrapikachu29@gmail.com
