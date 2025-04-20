@@ -17,6 +17,11 @@ const Home: React.FC = () => {
     <div className={styles.home}>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <div className={styles.heroSlideshow}>
+          <div className={styles.heroSlide}></div>
+          <div className={styles.heroSlide}></div>
+          <div className={styles.heroSlide}></div>
+        </div>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Welcome to FamilyFund</h1>
           <p className={styles.heroSubtitle}>
