@@ -1,0 +1,17 @@
+.progressContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(108, 92, 231, 0.05);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.progressBar {
+    height: 100%;
+    background: linear-gradient(to right, #6c5ce7, #a594f9);
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
