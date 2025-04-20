@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import WelcomePopup from './components/WelcomePopup';
+import ScrollProgressLine from './components/ScrollProgressLine';
 import Home from './pages/Home';
 import Resources from './pages/Resources';
 import Profile from './pages/Profile';
@@ -42,6 +43,7 @@ const App: React.FC = () => {
       <AuthProvider>
         <div className={styles.app}>
           <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
+          <ScrollProgressLine />
           <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
           <WelcomePopup />
           <main className={styles.main}>
