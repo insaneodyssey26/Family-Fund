@@ -65,5 +65,3 @@ src/
 
 For anything:
 - Email: hydrapikachu29@gmail.com
-- Location: Kolkata, West Bengal, India
-
